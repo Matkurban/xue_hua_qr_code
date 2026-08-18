@@ -1,0 +1,20 @@
+name: xue_hua_qr_code
+description: Out-of-the-box QR code widget for Flutter with styling, logos, automatic mask selection, and PNG export.
+version: 1.0.0
+homepage: https://github.com/Matkurban/xue_hua_qr_code
+repository: https://github.com/Matkurban/xue_hua_qr_code
+topics:
+  - qrcode
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
