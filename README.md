@@ -23,7 +23,7 @@ That is all you need: a scannable black-on-white QR code that adapts to its pare
 
 ```yaml
 dependencies:
-  xue_hua_qr_code: ^1.0.0
+  xue_hua_qr_code: ^lasted_version
 ```
 
 ## Basic usage

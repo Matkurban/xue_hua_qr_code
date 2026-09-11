@@ -23,7 +23,7 @@ XueHuaQrCode(value: 'https://example.com')
 
 ```yaml
 dependencies:
-  xue_hua_qr_code: ^1.0.0
+  xue_hua_qr_code: ^lasted_version
 ```
 
 ## 基础用法
