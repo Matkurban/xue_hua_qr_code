@@ -102,37 +102,37 @@ final image = await XueHuaQrCode.toImage('https://example.com', size: 512);
 
 ### `XueHuaQrCode`
 
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `value` | `String` | 必填 | 要编码的内容 |
-| `size` | `double?` | `null` | 固定边长;null 时自适应父级约束 |
-| `style` | `QrStyle` | `QrStyle()` | 外观样式 |
-| `logo` | `QrLogo?` | `null` | 中心 Logo |
-| `errorCorrectionLevel` | `QrErrorLevel?` | 自动 | 无 Logo 为 `medium`,带 Logo 为 `high` |
-| `errorBuilder` | `ImageErrorWidgetBuilder?` | `null` | 编码失败时的降级 UI |
-| `semanticsLabel` | `String?` | `'QR code'` | 无障碍语义标签 |
+| 参数                     | 类型                         | 默认值         | 说明                                |
+|------------------------|----------------------------|-------------|-----------------------------------|
+| `value`                | `String`                   | 必填          | 要编码的内容                            |
+| `size`                 | `double?`                  | `null`      | 固定边长;null 时自适应父级约束                |
+| `style`                | `QrStyle`                  | `QrStyle()` | 外观样式                              |
+| `logo`                 | `QrLogo?`                  | `null`      | 中心 Logo                           |
+| `errorCorrectionLevel` | `QrErrorLevel?`            | 自动          | 无 Logo 为 `medium`,带 Logo 为 `high` |
+| `errorBuilder`         | `ImageErrorWidgetBuilder?` | `null`      | 编码失败时的降级 UI                       |
+| `semanticsLabel`       | `String?`                  | `'QR code'` | 无障碍语义标签                           |
 
 ### `QrStyle`
 
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `shape` | `QrModuleShape` | `square` | `square` / `circle` / `roundedSquare` |
-| `color` | `Color` | 黑色 | 前景色(设置 `gradient` 时忽略) |
-| `backgroundColor` | `Color` | 白色 | 背景色;需要透明请显式传 `Colors.transparent` |
-| `gradient` | `Gradient?` | `null` | 前景渐变(任意 Flutter `Gradient`) |
-| `moduleRadius` | `double?` | 随形状 | 模块圆角,为模块尺寸的比例,0~0.5 |
-| `moduleGap` | `double?` | 随形状 | 模块间距,为模块尺寸的比例,0~0.5 |
-| `padding` | `EdgeInsets` | `EdgeInsets.all(8)` | 二维码四周的静默区 |
+| 参数                | 类型              | 默认值                 | 说明                                    |
+|-------------------|-----------------|---------------------|---------------------------------------|
+| `shape`           | `QrModuleShape` | `square`            | `square` / `circle` / `roundedSquare` |
+| `color`           | `Color`         | 黑色                  | 前景色(设置 `gradient` 时忽略)                |
+| `backgroundColor` | `Color`         | 白色                  | 背景色;需要透明请显式传 `Colors.transparent`     |
+| `gradient`        | `Gradient?`     | `null`              | 前景渐变(任意 Flutter `Gradient`)           |
+| `moduleRadius`    | `double?`       | 随形状                 | 模块圆角,为模块尺寸的比例,0~0.5                   |
+| `moduleGap`       | `double?`       | 随形状                 | 模块间距,为模块尺寸的比例,0~0.5                   |
+| `padding`         | `EdgeInsets`    | `EdgeInsets.all(8)` | 二维码四周的静默区                             |
 
 ### `QrLogo`
 
-| 参数 | 类型 | 默认值 | 说明 |
-|------|------|--------|------|
-| `image` | `ImageProvider` | 必填 | Logo 图片 |
-| `scale` | `double` | `0.2` | Logo 边长占二维码边长的比例,上限 0.35 |
-| `padding` | `double` | `4` | Logo 底衬留白(逻辑像素) |
-| `backgroundColor` | `Color?` | 样式背景色 | 底衬颜色 |
-| `borderRadius` | `double` | `0` | 底衬圆角(逻辑像素) |
+| 参数                | 类型              | 默认值   | 说明                       |
+|-------------------|-----------------|-------|--------------------------|
+| `image`           | `ImageProvider` | 必填    | Logo 图片                  |
+| `scale`           | `double`        | `0.2` | Logo 边长占二维码边长的比例,上限 0.35 |
+| `padding`         | `double`        | `4`   | Logo 底衬留白(逻辑像素)          |
+| `backgroundColor` | `Color?`        | 样式背景色 | 底衬颜色                     |
+| `borderRadius`    | `double`        | `0`   | 底衬圆角(逻辑像素)               |
 
 ### `QrErrorLevel`
 
@@ -140,10 +140,10 @@ final image = await XueHuaQrCode.toImage('https://example.com', size: 512);
 
 ### 导出方法
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| `XueHuaQrCode.toImage(value, {size, style, logo, errorCorrectionLevel})` | `Future<ui.Image>` | 渲染为 `dart:ui` 图片 |
-| `XueHuaQrCode.toPngBytes(value, {size, style, logo, errorCorrectionLevel})` | `Future<Uint8List>` | 渲染为 PNG 字节 |
+| 方法                                                                          | 返回值                 | 说明               |
+|-----------------------------------------------------------------------------|---------------------|------------------|
+| `XueHuaQrCode.toImage(value, {size, style, logo, errorCorrectionLevel})`    | `Future<ui.Image>`  | 渲染为 `dart:ui` 图片 |
+| `XueHuaQrCode.toPngBytes(value, {size, style, logo, errorCorrectionLevel})` | `Future<Uint8List>` | 渲染为 PNG 字节       |
 
 导出与组件显示共用同一绘制器,所见即所得。
 

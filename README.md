@@ -102,37 +102,37 @@ final image = await XueHuaQrCode.toImage('https://example.com', size: 512);
 
 ### `XueHuaQrCode`
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `value` | `String` | required | Content to encode |
-| `size` | `double?` | `null` | Fixed side length; `null` adapts to parent constraints |
-| `style` | `QrStyle` | `QrStyle()` | Visual style |
-| `logo` | `QrLogo?` | `null` | Center logo |
-| `errorCorrectionLevel` | `QrErrorLevel?` | auto | `medium` normally, `high` when a logo is set |
-| `errorBuilder` | `ImageErrorWidgetBuilder?` | `null` | Fallback UI when encoding fails |
-| `semanticsLabel` | `String?` | `'QR code'` | Accessibility label |
+| Parameter              | Type                       | Default     | Description                                            |
+|------------------------|----------------------------|-------------|--------------------------------------------------------|
+| `value`                | `String`                   | required    | Content to encode                                      |
+| `size`                 | `double?`                  | `null`      | Fixed side length; `null` adapts to parent constraints |
+| `style`                | `QrStyle`                  | `QrStyle()` | Visual style                                           |
+| `logo`                 | `QrLogo?`                  | `null`      | Center logo                                            |
+| `errorCorrectionLevel` | `QrErrorLevel?`            | auto        | `medium` normally, `high` when a logo is set           |
+| `errorBuilder`         | `ImageErrorWidgetBuilder?` | `null`      | Fallback UI when encoding fails                        |
+| `semanticsLabel`       | `String?`                  | `'QR code'` | Accessibility label                                    |
 
 ### `QrStyle`
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `shape` | `QrModuleShape` | `square` | `square` / `circle` / `roundedSquare` |
-| `color` | `Color` | black | Foreground color (ignored when `gradient` is set) |
-| `backgroundColor` | `Color` | white | Background; pass `Colors.transparent` explicitly if needed |
-| `gradient` | `Gradient?` | `null` | Foreground gradient (any Flutter `Gradient`) |
-| `moduleRadius` | `double?` | per shape | Corner radius as a fraction of module size, 0~0.5 |
-| `moduleGap` | `double?` | per shape | Gap between modules as a fraction of module size, 0~0.5 |
-| `padding` | `EdgeInsets` | `EdgeInsets.all(8)` | Quiet zone around the code |
+| Parameter         | Type            | Default             | Description                                                |
+|-------------------|-----------------|---------------------|------------------------------------------------------------|
+| `shape`           | `QrModuleShape` | `square`            | `square` / `circle` / `roundedSquare`                      |
+| `color`           | `Color`         | black               | Foreground color (ignored when `gradient` is set)          |
+| `backgroundColor` | `Color`         | white               | Background; pass `Colors.transparent` explicitly if needed |
+| `gradient`        | `Gradient?`     | `null`              | Foreground gradient (any Flutter `Gradient`)               |
+| `moduleRadius`    | `double?`       | per shape           | Corner radius as a fraction of module size, 0~0.5          |
+| `moduleGap`       | `double?`       | per shape           | Gap between modules as a fraction of module size, 0~0.5    |
+| `padding`         | `EdgeInsets`    | `EdgeInsets.all(8)` | Quiet zone around the code                                 |
 
 ### `QrLogo`
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `image` | `ImageProvider` | required | Logo image |
-| `scale` | `double` | `0.2` | Logo side as a fraction of the QR side, max 0.35 |
-| `padding` | `double` | `4` | Backdrop padding around the logo (logical px) |
-| `backgroundColor` | `Color?` | style background | Backdrop color |
-| `borderRadius` | `double` | `0` | Backdrop corner radius (logical px) |
+| Parameter         | Type            | Default          | Description                                      |
+|-------------------|-----------------|------------------|--------------------------------------------------|
+| `image`           | `ImageProvider` | required         | Logo image                                       |
+| `scale`           | `double`        | `0.2`            | Logo side as a fraction of the QR side, max 0.35 |
+| `padding`         | `double`        | `4`              | Backdrop padding around the logo (logical px)    |
+| `backgroundColor` | `Color?`        | style background | Backdrop color                                   |
+| `borderRadius`    | `double`        | `0`              | Backdrop corner radius (logical px)              |
 
 ### `QrErrorLevel`
 
@@ -140,10 +140,10 @@ final image = await XueHuaQrCode.toImage('https://example.com', size: 512);
 
 ### Export
 
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `XueHuaQrCode.toImage(value, {size, style, logo, errorCorrectionLevel})` | `Future<ui.Image>` | Render to a `dart:ui` image |
-| `XueHuaQrCode.toPngBytes(value, {size, style, logo, errorCorrectionLevel})` | `Future<Uint8List>` | Render to PNG bytes |
+| Method                                                                      | Returns             | Description                 |
+|-----------------------------------------------------------------------------|---------------------|-----------------------------|
+| `XueHuaQrCode.toImage(value, {size, style, logo, errorCorrectionLevel})`    | `Future<ui.Image>`  | Render to a `dart:ui` image |
+| `XueHuaQrCode.toPngBytes(value, {size, style, logo, errorCorrectionLevel})` | `Future<Uint8List>` | Render to PNG bytes         |
 
 Both use the same painter as the widget — what you see is what you export.
 
