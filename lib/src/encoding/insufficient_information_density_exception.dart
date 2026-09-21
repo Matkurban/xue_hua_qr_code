@@ -1,10 +1,12 @@
-/// Thrown when payload exceeds the chosen QR version capacity.
-/// 当载荷超过所选 QR 版本容量时抛出。
+/// Thrown when the payload exceeds QR version 40 capacity at the chosen error level.
+/// 当载荷在所选纠错等级下超过 QR 版本 40 容量时抛出。
 ///
-/// Use [QrCodeConfig.informationDensity] `null` or `0` for auto-selection,
-/// or set [QrCodeConfig.strictTypeNumber] to `false` to auto-upgrade.
-/// 使用 [QrCodeConfig.informationDensity] 为 `null` 或 `0` 自动选版本，
-/// 或将 [QrCodeConfig.strictTypeNumber] 设为 `false` 以自动升级版本。
+/// [QrMatrix.encode] always picks the smallest fitting version automatically.
+/// This exception means even version 40 cannot hold [QrMatrix.value].
+/// Shorten the payload, or use a lower [QrErrorLevel] (less correction, more capacity).
+/// [QrMatrix.encode] 始终自动选择能容纳数据的最小版本。
+/// 抛出本异常表示即使版本 40 也无法容纳 [QrMatrix.value]。
+/// 请缩短内容，或改用更低的 [QrErrorLevel]（纠错更少、容量更大）。
 class InsufficientInformationDensityException implements Exception {
   /// Creates an exception with an optional detail [message].
   /// 创建异常，可选详情 [message]。

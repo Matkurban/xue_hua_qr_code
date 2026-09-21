@@ -1,4 +1,10 @@
-# 2.0.1
+## 2.0.2
+
+* Ship Agent Skills under `skills/` (`xue-hua-qr-code-widget`, `xue-hua-qr-code-styling`, `xue-hua-qr-code-painter`) for `dart run skills@ get`.
+* Document every public constructor, field, getter, and method in skill `references/` and align `README.md` / `README_zh.md` with the source (semantics label default, export `size` / throws, per-shape module defaults, `QrMatrix`, `QrPainter`, `InsufficientInformationDensityException`).
+* Fix leftover `QrCodeConfig` dartdoc on `InsufficientInformationDensityException`.
+
+## 2.0.1
 
 * fix bugs
 
