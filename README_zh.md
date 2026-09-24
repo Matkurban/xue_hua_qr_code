@@ -2,6 +2,8 @@
 
 # xue_hua_qr_code
 
+**在线演示：** [https://matkurban.github.io/xue_hua_qr_code/](https://matkurban.github.io/xue_hua_qr_code/)
+
 开箱即用的 Flutter 二维码组件。纯 Dart 实现,无原生依赖、无平台通道。
 
 ```dart

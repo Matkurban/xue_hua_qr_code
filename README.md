@@ -2,6 +2,8 @@
 
 # xue_hua_qr_code
 
+**Live demo:** [https://matkurban.github.io/xue_hua_qr_code/](https://matkurban.github.io/xue_hua_qr_code/)
+
 Out-of-the-box QR code widget for Flutter. Pure Dart — no native dependencies, no platform channels.
 
 ```dart

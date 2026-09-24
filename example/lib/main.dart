@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:example/app_theme.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:xue_hua_qr_code/xue_hua_qr_code.dart';
 
@@ -14,10 +15,10 @@ class XueHuaQrCodeExampleApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'xue_hua_qr_code examples',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       home: const ExampleHomePage(),
     );
   }
