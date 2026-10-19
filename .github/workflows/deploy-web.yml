@@ -1,8 +1,11 @@
 name: Deploy web demo
 
+# Runs only when triggered manually, or when pubspec.yaml version changes on main.
 on:
   push:
     branches: [main]
+    paths:
+      - pubspec.yaml
   workflow_dispatch:
 
 permissions:
@@ -11,11 +14,31 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+      - id: diff
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          old=$(git show HEAD~1:pubspec.yaml 2>/dev/null | grep -m1 '^version:' || true)
+          new=$(grep -m1 '^version:' pubspec.yaml || true)
+          echo "old='$old' new='$new'"
+          if [ "$old" != "$new" ]; then echo "changed=true"; else echo "changed=false"; fi >> "$GITHUB_OUTPUT"
+
   build:
+    needs: check
+    if: github.event_name == 'workflow_dispatch' || needs.check.outputs.changed == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
