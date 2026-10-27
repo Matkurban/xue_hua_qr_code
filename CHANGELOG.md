@@ -1,3 +1,10 @@
+## 2.0.3
+
+* Example: add `integration_test` coverage and `ValueKey`s for the QR widget.
+* Example: upgrade demo dependencies (`material_ui`, `cupertino_ui`, `flex_color_scheme`, etc.) and theme the sample app.
+* Document the GitHub Pages live demo in `README.md` / `README_zh.md`.
+* CI: add GitHub Pages web-demo deploy workflow; run only on manual dispatch or `pubspec.yaml` version change.
+
 ## 2.0.2
 
 * Ship Agent Skills under `skills/` (`xue-hua-qr-code-widget`, `xue-hua-qr-code-styling`, `xue-hua-qr-code-painter`) for `dart run skills@ get`.
