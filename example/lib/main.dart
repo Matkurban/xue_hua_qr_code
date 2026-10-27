@@ -91,11 +91,12 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
     final (style, logo) = _configForTab();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('xue_hua_qr_code examples')),
+      appBar: AppBar(title: const Text('xue_hua_qr_code examples', key: ValueKey('app_title'))),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           SegmentedButton<int>(
+            key: const ValueKey('style_tabs'),
             segments: const [
               ButtonSegment(value: 0, label: Text('Basic')),
               ButtonSegment(value: 1, label: Text('Circle')),
@@ -116,17 +117,19 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
           const SizedBox(height: 12),
           Center(
             child: XueHuaQrCode(
+              key: const ValueKey('qr_preview'),
               value: _data,
               size: 240,
               style: style,
               logo: logo,
               errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.error, size: 48),
+                  const Icon(Icons.error, key: ValueKey('qr_error'), size: 48),
             ),
           ),
           const SizedBox(height: 24),
           Center(
             child: FilledButton.icon(
+              key: const ValueKey('export_png'),
               onPressed: _exportPng,
               icon: const Icon(Icons.image),
               label: const Text('Export PNG (512px)'),
@@ -134,7 +137,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
           ),
           const SizedBox(height: 16),
           if (_pngBytes != null)
-            Center(child: Image.memory(_pngBytes!, width: 240, height: 240)),
+            Center(child: Image.memory(_pngBytes!, key: const ValueKey('exported_png'), width: 240, height: 240)),
         ],
       ),
     );
